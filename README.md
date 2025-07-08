@@ -1,8 +1,6 @@
 # AI-Code-Assistant
 AI Code Assistant
 
-Link to the website/application : (https://pragatich30.github.io/AI-Code-Assistant/)
-
 ![image](https://github.com/user-attachments/assets/59dc0470-314e-4919-99d1-c2c399605a46)
 
 # 🚀 AI Code Assistant
