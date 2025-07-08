@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Code Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Code Assistant</h1>
+        <textarea id="codeInput" placeholder="Enter your code here..."></textarea>
+        <div class="button-group">
+            <button onclick="processCode('generate_code')">Code Generation</button>
+            <button onclick="processCode('test_case')">Generate Test Cases</button>
+            <button onclick="processCode('debugging')">Debug Code</button>
+        </div>
+        <div id="output">AI Response will appear here...</div>
+        <div id="disclaimer">
+            <p><strong>Disclaimer:</strong> This AI-powered assistant uses Google Gemini API to analyze code. 
+            Your input is sent to an external API for processing, but no data is stored or retained. 
+            By using this tool, you agree to these terms.</p>
+        </div>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
