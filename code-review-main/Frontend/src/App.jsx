@@ -1,14 +1,7 @@
 import { useState, useEffect } from "react"
 import "prismjs/themes/prism-tomorrow.css"
-
-import Editor from "react-simple-code-editor"
+import Editor from "@monaco-editor/react"
 import prism from "prismjs"
-
-// Prism languages
-import "prismjs/components/prism-javascript"
-import "prismjs/components/prism-python"
-import "prismjs/components/prism-cpp"
-import "prismjs/components/prism-java"
 
 import Markdown from "react-markdown"
 import rehypeHighlight from "rehype-highlight"
@@ -24,7 +17,8 @@ function App() {
 
   const [review, setReview] = useState("")
   const [language, setLanguage] = useState("javascript")
-  
+
+ 
   async function reviewCode() {
     const response = await axios.post("/ai/get-review", {
       code,
@@ -51,17 +45,19 @@ function App() {
 
           {/* Code Editor */}
           <Editor
-            value={code}
-            onValueChange={setCode}
-            highlight={(code) =>
-              prism.highlight(
-                code,
-                prism.languages[language] || prism.languages.javascript,
-                language
-              )
-            }
-            padding={10}
-          />
+  height="400px"
+  language={language}
+  value={code}
+  onChange={(value) => setCode(value)}
+  theme="vs-dark"
+  options={{
+    automaticLayout: true,
+    wordWrap: "on",
+    minimap: { enabled: false },
+    tabSize: 2,
+  }}
+/>
+
         </div>
 
         <div onClick={reviewCode} className="review">
