@@ -1,14 +1,26 @@
 const WebSocket = require('ws')
 
+let wss  //representing server 
+
 function initWebSocket(server) {
-  const wss = new WebSocket.Server({ server })
+  wss = new WebSocket.Server({ server })
 
   wss.on('connection', (ws) => {
-    console.log('WebSocket client connected') //client is establishing ocnnection //when client connected then msg will be send
+    console.log('Client connected via WebSocket')
 
-    ws.on('message', (msg) => {
-      ws.send('Hello from WebSocket') //here msg will be send
+    ws.on('message', (message) => {               //ws is single client conection
+      console.log('Message from client:', message.toString())
+
+      ws.send(JSON.stringify({
+        type: 'info',
+        message: 'Message received on server'
+      }))
+    })
+
+    ws.on('close', () => {
+      console.log('Client disconnected')
     })
   })
 }
+
 module.exports = initWebSocket
