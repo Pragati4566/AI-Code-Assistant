@@ -16,7 +16,7 @@ main {
   width: 100%;
   padding: 1.5rem;
   display: flex;
-  gap: 1rem;
+  gap: 1rem; /* kisi container ke andar elements ke beech ka gap */
 }
 
 main .left,
@@ -60,4 +60,22 @@ main .right {
   padding: 1rem 2rem;
   font-size: 1.5rem;
   overflow: auto;
+}
+/* Language selector styling */
+.left .code select {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  cursor: pointer;
+}
+/* select option  */
+.left .code select option {
+  background-color: #1a1a1a;
+  color: #ffffff;
 }
