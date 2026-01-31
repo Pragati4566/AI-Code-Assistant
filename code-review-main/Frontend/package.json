@@ -10,6 +10,7 @@
     "react-dom": "^19.0.0",
     "react-markdown": "^9.0.3",
     "react-scripts": "5.0.1",
+     "@monaco-editor/react": "^6.0.1",
     "react-simple-code-editor": "^0.14.1",
     "rehype-highlight": "^7.0.2"
   },
