@@ -1,9 +1,11 @@
+/* --- UNIVERSAL RESET --- */
 * {
-  margin: 0%;
-  padding: 0%;
+  margin: 0; /* % se 0 likhne ka koi sense nahi, 0 hi correct hai */
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* Full viewport coverage for root elements */
 html,
 body,
 #root {
@@ -11,26 +13,33 @@ body,
   width: 100%;
 }
 
+/* --- MAIN CONTAINER --- */
 main {
   height: 100%;
   width: 100%;
   padding: 1.5rem;
+
   display: flex;
-  gap: 1rem; /* kisi container ke andar elements ke beech ka gap */
+  flex-wrap: wrap; /* CHANGE: Correct syntax and added wrap to allow stacking on small screens */
+  gap: 1rem; /* gap between left and right sections */
 }
 
+/* --- LEFT & RIGHT COLUMNS --- */
 main .left,
 main .right {
   height: 100%;
-  flex-basis: 50%;
+  flex: 1 1 50%; /* CHANGE: flex shorthand instead of just flex-basis to allow responsiveness */
   border-radius: 0.7rem;
+  min-width: 300px; /* CHANGE: Ensure columns don't shrink too small on mobile */
 }
 
+/* --- LEFT PANEL --- */
 main .left {
   background-color: #000000;
   position: relative;
 }
 
+/* Editor styling */
 .left .code,
 .code pre,
 .code pre code {
@@ -41,6 +50,7 @@ main .left {
   background-color: #0c0c0c;
 }
 
+/* Review button */
 main .left .review {
   position: absolute;
   bottom: 1rem;
@@ -54,14 +64,15 @@ main .left .review {
   border-radius: 0.7rem;
 }
 
-
+/* --- RIGHT PANEL --- */
 main .right {
   background-color: #343434;
   padding: 1rem 2rem;
   font-size: 1.5rem;
   overflow: auto;
 }
-/* Language selector styling */
+
+/* --- LANGUAGE SELECTOR --- */
 .left .code select {
   width: 100%;
   margin-bottom: 0.5rem;
@@ -74,8 +85,38 @@ main .right {
   color: #ffffff;
   cursor: pointer;
 }
-/* select option  */
+
+/* Select options */
 .left .code select option {
   background-color: #1a1a1a;
   color: #ffffff;
+}
+
+/* --- RESPONSIVE DESIGN: MOBILE / TABLET --- */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column; /* CHANGE: stack left and right on smaller screens */
+  }
+
+  main .left,
+  main .right {
+    flex-basis: 100%; /* CHANGE: full width for stacked layout */
+    height: auto; /* CHANGE: allow content to determine height */
+  }
+
+  .left .code,
+  .code pre,
+  .code pre code {
+    height: 300px; /* CHANGE: fix height for editor on small screens */
+  }
+
+  main .left .review {
+    bottom: 0.5rem; /* adjust position slightly */
+    right: 0.5rem;
+  }
+
+  main .right {
+    font-size: 1.2rem; /* slightly smaller font on mobile */
+    padding: 0.8rem 1rem; /* reduce padding */
+  }
 }
