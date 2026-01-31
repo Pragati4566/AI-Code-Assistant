@@ -1,24 +1,26 @@
-const express = require('express');
-const router = express.Router();
 
-const aiService = require("../services/ai.service");
+const express = require("express")
+const router = express.Router()
+
+const aiService = require("../services/ai.service")
 
 router.post("/get-review", async (req, res) => {
   try {
-    const { code } = req.body;
+    const { code, language } = req.body 
 
     if (!code) {
-      return res.status(400).send("Prompt is required");
+      return res.status(400).send("Code is required")
     }
 
-    const response = await aiService(code);
+    const response = await aiService(code, language) 
 
-    res.status(200).send(response);
+    res.status(200).send(response)
 
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Something went wrong");
+    console.error(error)
+    res.status(500).send("Something went wrong")
   }
-});
+})
 
-module.exports = router;
+module.exports = router
+
