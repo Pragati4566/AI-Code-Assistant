@@ -51,10 +51,10 @@ function App() {
   onChange={(value) => setCode(value)}
   theme="vs-dark"
   options={{
-    automaticLayout: true,
-    wordWrap: "on",
-    minimap: { enabled: false },
-    tabSize: 2,
+    automaticLayout: true, //editor resize by itself when when screen or container size change by itself
+    wordWrap: "on", //when line becomes long then switch to another line
+    minimap: { enabled: false }, //tiny  preview of code so //for cleaner IDE
+    tabSize: 2,// for 2 spaces
   }}
 />
 
