@@ -81,17 +81,21 @@ const model = genAI.getGenerativeModel({
 
 async function generateContent(code, language = "javascript") {
   const prompt = `
-You are reviewing ${language} code.
+You are a senior ${language} developer.
 
-Analyze the following code thoroughly and give a senior-level review.
+Review the following ${language} code and provide:
+- Issues
+- Improvements
+- Optimized / cleaner version if needed
 
 Code:
 \`\`\`${language}
 ${code}
 \`\`\`
-`;
+`
 
-  const result = await model.generateContent(prompt);
-  return result.response.text();
+  const result = await model.generateContent(prompt)
+  return result.response.text()
 }
-module.exports = generateContent    
+
+module.exports = generateContent
