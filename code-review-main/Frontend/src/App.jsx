@@ -113,7 +113,8 @@ function handleEditorDidMount(monacoInstance) {
               setCode(value)
 
               //AI autocomplete trigger via WebSocket
-              if (ws && ws.readyState === WebSocket.OPEN) { //connection open and ws exist
+              //Send data only if WebSocket connection is active
+              if (ws && ws.readyState === WebSocket.OPEN) { //connection open and ws exist 
                 ws.send( //browseer to backend
                   JSON.stringify({
                     type: "code_change",
@@ -157,3 +158,4 @@ Because:
 AI providers don’t give WebSocket endpoints
 
 They only expose HTTP APIs*/
+//tab key or click on any suggestion
