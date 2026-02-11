@@ -24,7 +24,7 @@ function App() {
     ws.onopen = () => {
       console.log("WebSocket connected (autocomplete channel)")
     }
-
+//content coming from te backend
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data)
       console.log("WS message:", data)
