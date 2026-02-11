@@ -107,3 +107,10 @@ function App() {
   )
 }
 export default App
+/*True – but unavoidable
+
+Because:
+
+AI providers don’t give WebSocket endpoints
+
+They only expose HTTP APIs*/
